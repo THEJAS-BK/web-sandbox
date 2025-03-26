@@ -93,8 +93,50 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 .box img {
-  width: 90%;
+  width: 4rem;
+  height: 4rem;
   padding-top: 1rem;
+}
+/*? arrows in navbar  */
+.arrow-down {
+  font-size: 0.84rem;
+  transform: rotate(90deg);
+}
+.arrow-down:hover {
+  transform: rotate(-90deg);
+  transition: all 0.5s ease-in 0s;
+}
+.para:hover {
+  color: blue;
+}
+.subsection {
+  color: black;
+  position: absolute;
+  left: 15%;
+  top: 14rem;
+  background-color: white;
+  width: 30%;
+  display: flex;
+  height: fit-content;
+  padding: 1rem;
+  display: none;
+}
+.subbox1 {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+
+  border: none;
+}
+.subbox {
+  line-height: 3rem;
+}
+.subbox2 {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
 }
