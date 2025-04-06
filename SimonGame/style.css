@@ -1,0 +1,45 @@
+body {
+  text-align: center;
+}
+main {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  height: 100%;
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.box {
+  border-radius: 2rem;
+  width: 45%;
+  height: 45%;
+  border: 6px solid black;
+}
+.box1 {
+  background-color: brown;
+}
+.box2 {
+  background-color: darkcyan;
+}
+.box3 {
+  background-color: darkorange;
+}
+.box4 {
+  background-color: green;
+}
+.flashwhite {
+  background-color: white;
+}
+.flashgreen {
+  background-color: greenyellow;
+}
+.flashred {
+  background-color: red;
+}
