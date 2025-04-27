@@ -1,0 +1,58 @@
+body {
+  background-color: #121212;
+  color: white;
+}
+
+main {
+  border: 2px solid black;
+  width: 50%;
+  margin: 2px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  padding: 0;
+}
+.inp {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.inp1 {
+  height: 2rem;
+  width: 60%;
+  border: 3px solid white;
+  background-color: #1212;
+  border-radius: 1rem;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+.add {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #1212;
+  border-radius: 1rem;
+  border: 3px solid white;
+  color: white;
+}
+.content {
+  width: 50vh;
+  height: 100vh;
+}
+.line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.del {
+  font-weight: 800;
+  font-size: 1rem;
+  background-color: transparent;
+  color: red;
+  border-radius: 1rem;
+  border: none;
+}
