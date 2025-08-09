@@ -47,6 +47,11 @@ button {
   padding: 0.05rem;
   font-weight: 600;
 }
+.contentSize {
+  font-size: 1rem;
+  text-align: center;
+  align-self: center;
+}
 .row1 p {
   font-size: 0.85rem;
   letter-spacing: 0.1rem;
