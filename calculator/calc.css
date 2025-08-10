@@ -52,6 +52,10 @@ button {
   text-align: center;
   align-self: center;
 }
+.content .head-content {
+  align-self: start;
+  opacity: 0.75;
+}
 .row1 p {
   font-size: 0.85rem;
   letter-spacing: 0.1rem;

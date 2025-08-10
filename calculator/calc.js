@@ -21,14 +21,15 @@ allbtns.forEach((btn) => {
     } else if (btn.innerText == "CE" || btn.innerText == "C") {
       clearcontent();
     } else if (
-      btn.innerText == "+" ||
-      btn.innerText == "-" ||
-      btn.innerText == "*" ||
-      btn.innerText == "/"
+      (btn.innerText == "+" ||
+        btn.innerText == "-" ||
+        btn.innerText == "*" ||
+        btn.innerText == "/") &&
+      allNums[0] !== NaN
     ) {
       sortNums();
       operator = btn.innerText;
-    } else if (btn.innerText == "=") {
+    } else if (btn.innerText == "=" && allNums[0] !== NaN) {
       sortNums();
       calculate(operator);
     } else if (btn.innerText == "$") {
@@ -53,6 +54,7 @@ function removeLastDigit() {
   display.innerText = display.innerText.slice(0, -1);
 }
 function calculate(operation) {
+  let zero = false;
   let ans = 0;
   if (operation == "+") {
     for (let i = 0; i < allNums.length; i++) {
@@ -79,13 +81,14 @@ function calculate(operation) {
         } else {
           ans = " YOU CAN'T DIVIDE ANYTHING BY ZERO YOU IDIOT";
           contentArea.classList.add("contentSize");
+          zero = true;
         }
       }
     }
   }
   allNums = [];
-  if (Number(ans)) {
-    allNums.push(ans);
+  if (Number(ans) && zero == false) {
+    allNums.push(ans.toFixed(13));
   }
-  contentArea.innerText = `${ans}`;
+  contentArea.innerText = `${ans.toFixed(13)}`;
 }
