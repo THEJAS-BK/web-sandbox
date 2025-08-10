@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AddPost</title>
+    <link rel="stylesheet" href="/add.css" />
+  </head>
+  <body>
+    <form method="post" action="/addedPost" class="container">
+      <h1>Add post</h1>
+      <div class="bottom">
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="username"
+          maxlength="22"
+        />
+        <label for="profile" id="profilePhoto">Add DP</label>
+        <input type="file" name="profile" id="profile" />
+      </div>
+      <br />
+      <textarea
+        name="description"
+        id="description"
+        placeholder="Enter description"
+        cols="30"
+        rows="8"
+      ></textarea>
+      <br />
+      <br />
+      <div class="bottom">
+        <label for="image" id="custom-btn"> Choose File </label>
+        <input type="file" name="image" id="image" />
+        <button id="addpost">Add</button>
+      </div>
+    </form>
+  </body>
+</html>

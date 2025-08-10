@@ -1,0 +1,64 @@
+.container {
+  border: 3px solid black;
+  width: 40%;
+  display: flex;
+  height: 50vh;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  border-radius: 2rem;
+}
+textarea {
+  resize: none;
+  outline: none;
+  border: none;
+  width: 80%;
+  height: 40%;
+  border-radius: 2rem;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgb(126, 116, 116);
+}
+#username {
+  border: none;
+  padding: 0.75rem;
+  border-radius: 1rem;
+  outline: none;
+  box-shadow: 0 4px 10px rgb(126, 116, 116);
+}
+#image,
+#profile {
+  display: none;
+  width: 1rem;
+}
+#custom-btn,
+#profilePhoto {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: white;
+  background-color: #5a8284;
+  box-shadow: 0 4px 10px rgb(126, 116, 116);
+}
+.bottom {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-weight: bold;
+}
+#addpost {
+  padding: 10px 50px;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: white;
+  background-color: #5a8284;
+  box-shadow: 0 4px 10px rgb(126, 116, 116);
+  letter-spacing: 0.15rem;
+  font-weight: bold;
+}
