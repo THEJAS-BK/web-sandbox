@@ -8,6 +8,7 @@ let operator = "";
 contentArea.classList.remove("contentSize");
 allbtns.forEach((btn) => {
   btn.addEventListener("click", () => {
+    blinkbtn(btn);
     headContent.innerText += btn.innerText;
     let removedigit = btn.value;
     contentArea.classList.remove("contentSize");
@@ -48,7 +49,13 @@ function sortNums() {
   removeZero = false;
   maxNumContent = 0;
 }
-
+//clicking animation
+function blinkbtn(btn) {
+  btn.classList.add("btn-opacity");
+  setTimeout(() => {
+    btn.classList.remove("btn-opacity");
+  }, 200);
+}
 //clearing all the numbers
 function clearcontent() {
   contentArea.innerText = "0";
