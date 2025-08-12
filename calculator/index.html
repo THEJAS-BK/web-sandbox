@@ -4,15 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="calc.css" />
   </head>
-  <link rel="stylesheet" href="calc.css" />
+
   <body>
     <div class="maincontent">
       <div class="head">
         <p>Standard</p>
       </div>
       <div class="content">
-        <p class="head-content">22/69</p>
+        <p class="head-content"></p>
         <p class="content-digits contentSize">0</p>
       </div>
       <main>
@@ -34,8 +42,8 @@
           <button class="btns">
             <p>C</p>
           </button>
-          <button class="btns">
-            <p>$</p>
+          <button class="btns" value="YES">
+            <p><i class="fa-solid fa-delete-left"></i></p>
           </button>
         </div>
         <div class="row3">
@@ -46,10 +54,10 @@
             <p>x <sup>2</sup></p>
           </button>
           <button class="btns">
-            <p>$</p>
+            <p><i class="fa-solid fa-square-root-variable"></i></p>
           </button>
-          <button class="btns">
-            <p>/</p>
+          <button class="btns" value="/">
+            <p>&divide</p>
           </button>
         </div>
         <div class="row4">
@@ -96,7 +104,7 @@
         </div>
         <div class="row7">
           <button class="btns lightbackground">
-            <p>&</p>
+            <p><i class="fa-solid fa-plus-minus"></i></p>
           </button>
           <button class="btns lightbackground">
             <p>0</p>

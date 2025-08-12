@@ -1,5 +1,6 @@
 const allbtns = document.querySelectorAll(".btns");
 const contentArea = document.querySelector(".content-digits");
+const headContent = document.querySelector(".head-content");
 let maxNumContent = 0; //for reset
 let allNums = [];
 let removeZero = false; //for Reset
@@ -7,6 +8,8 @@ let operator = "";
 contentArea.classList.remove("contentSize");
 allbtns.forEach((btn) => {
   btn.addEventListener("click", () => {
+    headContent.innerText += btn.innerText;
+    let removedigit = btn.value;
     contentArea.classList.remove("contentSize");
     if (
       (btn.innerText >= 0 && btn.innerText < 10 && maxNumContent < 13) ||
@@ -23,16 +26,17 @@ allbtns.forEach((btn) => {
     } else if (
       (btn.innerText == "+" ||
         btn.innerText == "-" ||
-        btn.innerText == "*" ||
-        btn.innerText == "/") &&
-      allNums[0] !== NaN
+        btn.innerText == "x" ||
+        btn.innerText == "\u00F7") &&
+      allNums[0] !== ""
     ) {
       sortNums();
       operator = btn.innerText;
     } else if (btn.innerText == "=" && allNums[0] !== NaN) {
       sortNums();
       calculate(operator);
-    } else if (btn.innerText == "$") {
+    }
+    if (removedigit == "YES") {
       removeLastDigit();
     }
   });
@@ -44,15 +48,29 @@ function sortNums() {
   removeZero = false;
   maxNumContent = 0;
 }
+
+//clearing all the numbers
 function clearcontent() {
   contentArea.innerText = "0";
   removeZero = false;
   allNums = [];
+  headContent.innerText = "";
 }
+
+//removing one digit at a time
 function removeLastDigit() {
   let display = document.querySelector(".content-digits");
-  display.innerText = display.innerText.slice(0, -1);
+  let headDisplay = document.querySelector(".head-content");
+  if (display.innerText.length > 0) {
+    display.innerText = display.innerText.slice(0, -1);
+    headDisplay.innerText = headDisplay.innerText.slice(0, -1);
+  }
 }
+function formatNumbers(n) {
+  return n % 1 === 0 ? n.toFixed(0) : n.toString();
+}
+
+// performing all the calculations
 function calculate(operation) {
   let zero = false;
   let ans = 0;
@@ -65,12 +83,12 @@ function calculate(operation) {
     for (let i = 1; i < allNums.length; i++) {
       ans -= allNums[i];
     }
-  } else if (operation == "*") {
+  } else if (operation == "x") {
     ans = 1;
     for (let i = 0; i < allNums.length; i++) {
       ans *= allNums[i];
     }
-  } else if (operation == "/") {
+  } else if (operation == "\u00F7") {
     ans = allNums[0];
     if (allNums[0] == 0) {
       ans = 0;
@@ -86,9 +104,17 @@ function calculate(operation) {
       }
     }
   }
-  allNums = [];
+
   if (Number(ans) && zero == false) {
-    allNums.push(ans.toFixed(13));
+    allNums = [];
   }
-  contentArea.innerText = `${ans.toFixed(13)}`;
+  contentArea.innerText = `${formatNumbers(Number(ans.toFixed(13)))}`;
+  headContent.innerText = `${formatNumbers(Number(ans.toFixed(13)))}`;
+}
+
+function contentHeadSection(num) {
+  if (num == "/") {
+    num = "\u00F7";
+  }
+  headContent.innerText += num;
 }

@@ -41,6 +41,7 @@ button {
   display: flex;
   justify-content: end;
   align-items: end;
+  position: relative;
 }
 .content-digits {
   font-size: 2.5rem;
@@ -55,6 +56,8 @@ button {
 .content .head-content {
   align-self: start;
   opacity: 0.75;
+  position: absolute;
+  right: 1rem;
 }
 .row1 p {
   font-size: 0.85rem;
