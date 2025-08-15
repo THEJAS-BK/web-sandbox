@@ -9,7 +9,9 @@ contentArea.classList.remove("contentSize");
 allbtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     blinkbtn(btn);
-    headContent.innerText += btn.innerText;
+    if (maxNumContent < 13) {
+      headContent.innerText += btn.innerText;
+    }
     let removedigit = btn.value;
     contentArea.classList.remove("contentSize");
     if (
