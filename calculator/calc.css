@@ -15,7 +15,7 @@ body {
 .maincontent {
   background-color: #121212;
   width: 44vh;
-  height: 60vh;
+  height: 61vh;
   display: flex;
   flex-direction: column;
   margin: 60px auto;

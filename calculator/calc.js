@@ -5,22 +5,32 @@ let maxNumContent = 0; //for reset
 let allNums = [];
 let removeZero = false; //for Reset
 let operator = "";
+const sqrtSymbol = "\u221A";
+
 contentArea.classList.remove("contentSize");
 allbtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     blinkbtn(btn);
+    console.log("clicked", btn, "\n btn val=", btn.value);
     if (maxNumContent < 13) {
-      headContent.innerText += btn.innerText;
+      if (btn.value == "squareRoot") {
+        headContent.innerText += sqrtSymbol;
+      } else {
+        headContent.innerText += btn.innerText;
+      }
     }
-    let removedigit = btn.value;
     contentArea.classList.remove("contentSize");
     if (
       (btn.innerText >= 0 && btn.innerText < 10 && maxNumContent < 13) ||
       btn.innerText == "."
     ) {
-      if (removeZero === false) {
-        contentArea.innerText = "";
-        removeZero = true;
+      for (let i = 0; i < 10; i++) {
+        if (Number(btn.innerText) === i) {
+          if (removeZero === false) {
+            contentArea.innerText = "";
+            removeZero = true;
+          }
+        }
       }
       contentArea.innerText += btn.innerText;
       maxNumContent++;
@@ -38,9 +48,14 @@ allbtns.forEach((btn) => {
     } else if (btn.innerText == "=" && allNums[0] !== NaN) {
       sortNums();
       calculate(operator);
+    } else if (btn.innerText == "1/x") {
+      console.log("yes");
     }
-    if (removedigit == "YES") {
+    if (btn.value == "YES") {
       removeLastDigit();
+    } else if (btn.value == "plusminus") {
+      contentArea.innerText = "-";
+      headContent.innerText = "-";
     }
   });
 });
@@ -73,6 +88,9 @@ function removeLastDigit() {
   if (display.innerText.length > 0) {
     display.innerText = display.innerText.slice(0, -1);
     headDisplay.innerText = headDisplay.innerText.slice(0, -1);
+  } else {
+    removeZero = false;
+    contentArea.innerText = "0";
   }
 }
 function formatNumbers(n) {
