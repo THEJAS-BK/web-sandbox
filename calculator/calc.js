@@ -6,12 +6,12 @@ let allNums = [];
 let removeZero = false; //for Reset
 let operator = "";
 const sqrtSymbol = "\u221A";
+const xSquare = "x\u00b2";
 
 contentArea.classList.remove("contentSize");
 allbtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     blinkbtn(btn);
-    console.log("clicked", btn, "\n btn val=", btn.value);
     if (maxNumContent < 13) {
       if (btn.value == "squareRoot") {
         headContent.innerText += sqrtSymbol;
@@ -45,11 +45,19 @@ allbtns.forEach((btn) => {
     ) {
       sortNums();
       operator = btn.innerText;
+      checkRootOrDivide(operator);
     } else if (btn.innerText == "=" && allNums[0] !== NaN) {
-      sortNums();
-      calculate(operator);
+      if (headContent.innerText[0] === sqrtSymbol) {
+        let sqrtValue = headContent.innerText.slice(1, -1);
+        sqrtValueFunc(sqrtValue);
+      } else {
+        sortNums();
+        calculate(operator);
+      }
     } else if (btn.innerText == "1/x") {
-      console.log("yes");
+      divideByX();
+    } else if (btn.innerText == xSquare) {
+      xSquared();
     }
     if (btn.value == "YES") {
       removeLastDigit();
@@ -131,12 +139,10 @@ function calculate(operation) {
       }
     }
   }
-
   if (Number(ans) && zero == false) {
     allNums = [];
   }
   contentArea.innerText = `${formatNumbers(Number(ans.toFixed(13)))}`;
-  headContent.innerText = `${formatNumbers(Number(ans.toFixed(13)))}`;
 }
 
 function contentHeadSection(num) {
@@ -145,3 +151,29 @@ function contentHeadSection(num) {
   }
   headContent.innerText += num;
 }
+function sqrtValueFunc(val) {
+  squareValue = Math.sqrt(val);
+  console.log(squareValue);
+  contentArea.innerText = squareValue;
+}
+function divideByX() {
+  let ans = 1 / Number(contentArea.innerText);
+  headContent.innerText = `${sqrtSymbol} ( ${contentArea.innerText} ) =`;
+  contentArea.innerText = ans;
+}
+function checkRootOrDivide(operator) {
+  let symbols = ["+", "-", "\u00F7", "x"];
+  if (symbols.includes(operator)) {
+    headContent.innerText = `${allNums[0]}${operator}`;
+  }
+}
+function xSquared() {
+  headContent.innerText = headContent.innerText.slice(0, -2);
+  let val = Number(contentArea.innerText);
+  val = val * val;
+  headContent.innerText = `( ${contentArea.innerText} )\u00b2=`;
+  contentArea.innerText = val;
+}
+//?standard to scientific and wise versa
+let sideBar = document.querySelector(".fa-bars");
+sideBar.addEventListener("click", () => {});

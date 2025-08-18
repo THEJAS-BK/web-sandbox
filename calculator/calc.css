@@ -53,6 +53,13 @@ button {
 .head-left i {
   font-size: 1.5rem;
 }
+.changeBox {
+  display: none;
+  background-color: lightblue;
+  height: 5rem;
+  width: 4rem;
+  position: absolute;
+}
 .content {
   height: 20%;
   display: flex;
