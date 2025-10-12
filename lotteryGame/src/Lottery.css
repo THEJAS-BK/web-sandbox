@@ -1,0 +1,18 @@
+span {
+  border: 3px solid white;
+  padding: 1rem;
+  font-weight: bolder !important;
+  font-size: 1rem;
+  border-radius: 1rem;
+}
+.ticket {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-direction: column;
+}
+.ticketInside {
+  display: flex;
+  gap: 1rem;
+}
