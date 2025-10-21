@@ -1,0 +1,10 @@
+.Seats-area {
+  background-color: lightblue;
+  width: 60vh;
+  height: 70vh;
+  padding: 1rem;
+}
+.seat {
+  color: white;
+  font-size: 3rem !important;
+}
